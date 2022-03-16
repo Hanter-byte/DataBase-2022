@@ -1,0 +1,40 @@
+@startuml
+
+entity Client {
+    *id : int <<Pk>> NOT NULL
+    --
+    *nome: varchar(50) NOT NULL
+    *data_nascimento: date NOT NULL
+    *cpf: char(11) NOT NULL
+    *rg: varchar(26) NOT NULL
+    *endereco: varchar(200) NULL
+}
+
+entity Pedido{
+    *id : int <<Pk>> NOT NULL
+    --
+    *nome: varchar(50) NOT NULL
+    *quantidade_produto int(2000) NOT NULL
+}
+
+entity Estoque{
+    *id : int <<Pk>> NOT NULL
+    --
+    saldo_produto: int (2000) NOT NULL
+    nome_produto: varchar(200) NOT NULL
+    capacidade_max_produto: int(2000) NOT NULL
+    capacidade_min_produto: int(500) NOT NULL
+}
+
+entity Producao{
+    *id : int <<Pk>> NOT NULL
+    --
+    nome_produto: varchar(200) NOT NULL
+    necessidade_producao: int NOT NULL
+}
+
+Client ||..|| Pedido
+Pedido ||..|| Estoque
+Estoque ||..|| Producao
+
+@enduml

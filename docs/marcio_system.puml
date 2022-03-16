@@ -1,0 +1,35 @@
+@startuml
+
+entity Cliente {
+    *id : int <<Pk>> NOT NULL
+    --
+    *nome: varchar(50) NOT NULL
+    *data_nascimento: date NOT NULL
+    *cpf: char(11) NOT NULL
+    *rg: varchar(26) NOT NULL
+    *endereco: varchar(200) NULL
+}
+
+entity pedido_venda{
+    *id: int <<Pk>> NOT NULL
+    --
+    *emissao : date NOT NULL
+    *quantidade_pedido_total: ecimal(6,4) NOT NULL
+}
+
+entity pedido_venda_item{
+    *id: int <<Pk>> NOT NULL
+    --
+    *pedido_venda Fk: int <<Fk>> NOT NULL
+    *produto Fk: int <<Fk>> NOT NULL
+    *quantidade: decimal(6,4) NOT NULL
+
+}
+
+entity produto{
+    *id: int <<Pk>> NOT NULL
+    --
+    nome: varchar(100) NOT NULL
+}
+
+@enduml
