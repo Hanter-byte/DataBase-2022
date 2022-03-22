@@ -10,6 +10,20 @@ entity Client {
     *endereco: varchar(200) NULL
 }
 
+entity endereco {
+    *id : int <<PK>> NOT NULL
+    --
+    *logadouro : varchar(100) NOT NULL
+    *cep : char(8) NOT NULL
+    *numero : varchar(5) NULL
+    *cidade
+    *bairro
+    *tipo
+    *uf
+    *complemento
+    *ponto_referencia
+}
+
 entity Pedido{
     *id : int <<Pk>> NOT NULL
     --
